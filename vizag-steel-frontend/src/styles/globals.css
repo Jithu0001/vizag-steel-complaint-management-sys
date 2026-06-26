@@ -1,0 +1,135 @@
+/* ═══════════════════════════════════════════════════════════════
+   VIZAG STEEL CMS — Design System
+   Industrial precision: dark navy authority + steel blue accent
+   ═══════════════════════════════════════════════════════════════ */
+/* @import 'bootstrap/dist/css/bootstrap.min.css'; */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --color-bg-elevated: #f3f4f6;     /* Light gray fallback */
+  --color-bg-card: #ffffff;         /* White fallback */
+  --color-text-primary: #111827;     /* Dark gray text */
+  --color-text-secondary: #4b5563;   /* Lighter gray text */
+  --color-border: #e5e7eb;           /* Border line gray */
+}
+:root {
+  /* ── Color Palette ── */
+  --color-bg-primary:    #0B1220;   /* Deep navy — main background */
+  --color-bg-secondary:  #111827;   /* Slightly lighter navy */
+  --color-bg-card:       #1A2235;   /* Card surfaces */
+  --color-bg-elevated:   #232F45;   /* Modals, dropdowns */
+  --color-bg-input:      #151E2E;   /* Input fields */
+
+  --color-accent:        #3B82F6;   /* Steel blue — primary actions */
+  --color-accent-hover:  #2563EB;
+  --color-accent-muted:  rgba(59,130,246,0.12);
+
+  --color-success:       #10B981;
+  --color-success-muted: rgba(16,185,129,0.12);
+  --color-warning:       #F59E0B;
+  --color-warning-muted: rgba(245,158,11,0.12);
+  --color-danger:        #EF4444;
+  --color-danger-muted:  rgba(239,68,68,0.12);
+  --color-critical:      #F97316;
+  --color-critical-muted:rgba(249,115,22,0.12);
+
+  --color-text-primary:  #F1F5F9;
+  --color-text-secondary:#94A3B8;
+  --color-text-muted:    #475569;
+  --color-border:        #1E2D45;
+  --color-border-focus:  #3B82F6;
+
+  /* ── Priority Colors ── */
+  --priority-low:        #10B981;
+  --priority-medium:     #F59E0B;
+  --priority-high:       #F97316;
+  --priority-critical:   #EF4444;
+
+  /* ── Status Colors ── */
+  --status-pending:      #94A3B8;
+  --status-assigned:     #3B82F6;
+  --status-in-progress:  #F59E0B;
+  --status-resolved:     #10B981;
+  --status-verified:     #8B5CF6;
+  --status-closed:       #475569;
+  --status-escalated:    #EF4444;
+  --status-rejected:     #6B7280;
+
+  /* ── Typography ── */
+  --font-sans:  'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono:  'JetBrains Mono', 'Courier New', monospace;
+
+  /* ── Spacing ── */
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+  --space-5: 20px; --space-6: 24px; --space-8: 32px; --space-10: 40px;
+  --space-12: 48px; --space-16: 64px;
+
+  /* ── Radius ── */
+  --radius-sm: 4px; --radius-md: 8px; --radius-lg: 12px; --radius-xl: 16px;
+
+  /* ── Shadows ── */
+  --shadow-sm:  0 1px 3px rgba(0,0,0,0.4);
+  --shadow-md:  0 4px 12px rgba(0,0,0,0.5);
+  --shadow-lg:  0 8px 32px rgba(0,0,0,0.6);
+  --shadow-glow: 0 0 20px rgba(59,130,246,0.2);
+
+  /* ── Transitions ── */
+  --transition: all 0.18s ease;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--color-bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-text-muted); }
+
+/* ── Utility Classes ── */
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+
+.badge {
+  display: inline-flex; align-items: center; gap: var(--space-1);
+  padding: 2px 10px; border-radius: 100px;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+}
+
+.badge-pending    { background: rgba(148,163,184,0.15); color: var(--status-pending); }
+.badge-assigned   { background: var(--color-accent-muted); color: var(--status-assigned); }
+.badge-in_progress{ background: var(--color-warning-muted); color: var(--status-in-progress); }
+.badge-resolved   { background: var(--color-success-muted); color: var(--status-resolved); }
+.badge-verified   { background: rgba(139,92,246,0.12); color: var(--status-verified); }
+.badge-closed     { background: rgba(71,85,105,0.15); color: var(--status-closed); }
+.badge-escalated  { background: var(--color-danger-muted); color: var(--status-escalated); }
+.badge-rejected   { background: rgba(107,114,128,0.12); color: var(--status-rejected); }
+
+.priority-low      { color: var(--priority-low); }
+.priority-medium   { color: var(--priority-medium); }
+.priority-high     { color: var(--priority-high); }
+.priority-critical { color: var(--priority-critical); }
+
+/* ── Animations ── */
+@keyframes fadeIn    { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+@keyframes slideIn   { from { transform:translateX(-100%); } to { transform:translateX(0); } }
+@keyframes pulse     { 0%,100%{ opacity:1; } 50%{ opacity:0.5; } }
+@keyframes spin      { to { transform: rotate(360deg); } }
+
+.fade-in   { animation: fadeIn 0.25s ease forwards; }
+.slide-in  { animation: slideIn 0.3s ease forwards; }
+.pulse     { animation: pulse 2s infinite; }
+.spin      { animation: spin 0.8s linear infinite; }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  :root { --space-6: 16px; --space-8: 24px; }
+}

@@ -7,7 +7,7 @@ const logger = require('../utils/logger');
 
 let io;
 
-const initSocket = (server) => {
+const initSocket = (server) => {  
   io = new Server(server, {
     cors: {
       origin: process.env.FRONTEND_URL || 'http://localhost:3000',

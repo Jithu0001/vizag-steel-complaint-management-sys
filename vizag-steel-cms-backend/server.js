@@ -9,13 +9,12 @@ const logger = require('./src/utils/logger');
 
 const cors = require('cors');
 const allowedOrigins = [
-  'http://localhost:5173',                  // For local development
-  'https://vizag-steel-complaint-management-sy.vercel.app/' // Replace this with your exact live Vercel URL
+  'http://localhost:5173',
+  'https://vizag-steel-complaint-management-sy.vercel.app' 
 ];
 
 app.use(cors({
   origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps, curl, or postman)
     if (!origin) return callback(null, true);
     
     if (allowedOrigins.indexOf(origin) !== -1) {

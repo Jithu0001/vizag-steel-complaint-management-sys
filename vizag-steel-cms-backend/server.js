@@ -10,7 +10,7 @@ const logger = require('./src/utils/logger');
 const cors = require('cors');
 const allowedOrigins = [
   'http://localhost:5173',                  // For local development
-  'https://your-vercel-app-name.vercel.app' // Replace this with your exact live Vercel URL
+  'https://vizag-steel-complaint-management-sy.vercel.app/' // Replace this with your exact live Vercel URL
 ];
 
 app.use(cors({

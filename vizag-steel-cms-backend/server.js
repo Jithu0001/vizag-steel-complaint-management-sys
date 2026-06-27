@@ -8,7 +8,24 @@ const { initQueues } = require('./src/jobs/queueManager');
 const logger = require('./src/utils/logger');
 
 const cors = require('cors');
-app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
+const allowedOrigins = [
+  'http://localhost:5173',                  // For local development
+  'https://your-vercel-app-name.vercel.app' // Replace this with your exact live Vercel URL
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps, curl, or postman)
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      return callback(null, true);
+    } else {
+      return callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
+}));
 
 
 const PORT = process.env.PORT || 5000;
